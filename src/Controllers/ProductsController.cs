@@ -1,16 +1,20 @@
-using System.Collections.Generic;
-
-using Microsoft.AspNetCore.Mvc;
-
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
-
 namespace ContosoCrafts.WebSite.Controllers
 {
+    using System.Collections.Generic;
+
+    using ContosoCrafts.WebSite.Models;
+    using ContosoCrafts.WebSite.Services;
+
+    using Microsoft.AspNetCore.Mvc;
+
     [ApiController]
     [Route("[controller]")]
     public class ProductsController : ControllerBase
     {
+        /// <summary>
+        /// Controller class for Articles
+        /// </summary>
+        /// <param name="productService"></param>
         public ProductsController(JsonFileProductService productService)
         {
             ProductService = productService;
@@ -24,14 +28,21 @@ namespace ContosoCrafts.WebSite.Controllers
             return ProductService.GetAllData();
         }
 
+        /// <summary>
+        /// Add requested rating to article. 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPatch]
         public ActionResult Patch([FromBody] RatingRequest request)
         {
-            ProductService.AddRating(request.ProductId, request.Rating);
-            
+            _ = ProductService.AddRating(request.ProductId, request.Rating);
+
             return Ok();
         }
-
+        /// <summary>
+        /// Define a rating request class with article ID and rating. 
+        /// </summary>
         public class RatingRequest
         {
             public string ProductId { get; set; }
