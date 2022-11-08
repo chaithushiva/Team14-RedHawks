@@ -1,34 +1,44 @@
-﻿using System.Collections.Generic;
-
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
-
-namespace ContosoCrafts.WebSite.Pages
+﻿namespace ContosoCrafts.WebSite.Pages
 {
-    /// <summary>
-    /// Myke Brako
-    /// </summary>
+    using System.Collections.Generic;
+
+    using ContosoCrafts.WebSite.Models;
+    using ContosoCrafts.WebSite.Services;
+
+    using Microsoft.AspNetCore.Mvc.RazorPages;
+    using Microsoft.Extensions.Logging;
 
     /// <summary>
-    /// Vaishnavi Kulkarni
+    /// Index Page will return all the data to show the user.
     /// </summary>
     public class IndexModel : PageModel
     {
+        // message logging interface
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger,
-            JsonFileProductService productService)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public IndexModel(ILogger<IndexModel> logger, JsonFileProductService productService)
         {
             _logger = logger;
             ProductService = productService;
         }
 
+        /// <summary>
+        /// Store the service responsible for interacting with the data store.
+        /// </summary>
         public JsonFileProductService ProductService { get; }
+
+        /// <summary>
+        /// Collection of the Data.
+        /// </summary>
         public IEnumerable<ProductModel> Products { get; private set; }
 
+        /// <summary>
+        /// REST OnGet
+        /// Return all the data
+        /// </summary>
         public void OnGet()
         {
             Products = ProductService.GetAllData();
