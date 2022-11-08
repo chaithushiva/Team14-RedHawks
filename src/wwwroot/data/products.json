@@ -11,6 +11,7 @@
     "Ratings": [
       5
     ],
+    "ProductType": 55,
     "CommentList": [],
     "Laptops": "10",
     "Projectors": "4",
@@ -29,7 +30,9 @@
     "Url": "https://www.etonschool.org/learning/academics?msclkid=dd2a72dea530143e4a7411b495645b2d",
     "Ratings": [
       4
+
     ],
+    "ProductType": 1,
     "CommentList": [],
     "Laptops": "20",
     "Projectors": "3",
@@ -49,6 +52,7 @@
     "Ratings": [
       5
     ],
+    "ProductType": 55,
     "CommentList": [],
     "Laptops": "32",
     "Projectors": "4",
@@ -71,6 +75,7 @@
     "Ratings": [
       4
     ],
+    "ProductType": 1,
     "CommentList": [],
     "Laptops": "34",
     "Projectors": "8",
@@ -90,6 +95,7 @@
     "Ratings": [
       3
     ],
+    "ProductType": 55,
     "CommentList": [],
     "Laptops": "20",
     "Projectors": "3",
@@ -109,6 +115,7 @@
     "Ratings": [
       5
     ],
+    "ProductType": 1,
     "CommentList": [],
     "Laptops": "210",
     "Projectors": "9",
