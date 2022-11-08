@@ -1,19 +1,27 @@
-using Microsoft.Extensions.Logging;
-
-using NUnit.Framework;
-
-using Moq;
-
-using ContosoCrafts.WebSite.Pages;
-
-namespace UnitTests.Pages.Privacy
+namespace UnitTests.Pages
 {
+    using ContosoCrafts.WebSite.Pages;
+
+    using Microsoft.Extensions.Logging;
+
+    using Moq;
+
+    using NUnit.Framework;
+
+    /// <summary>
+    /// Test class for the Privacy page
+    /// </summary>
     public class PrivacyTests
     {
         #region TestSetup
+        // page model for class
         public static PrivacyModel pageModel;
 
+        /// <summary>
+        /// Setup the test prior to execution
+        /// </summary>
         [SetUp]
+
         public void TestInitialize()
         {
             var MockLoggerDirect = Mock.Of<ILogger<PrivacyModel>>();
@@ -28,6 +36,11 @@ namespace UnitTests.Pages.Privacy
         #endregion TestSetup
 
         #region OnGet
+
+
+        /// <summary>
+        /// Test OnGet method for valid result
+        /// </summary>
         [Test]
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
