@@ -12,7 +12,7 @@ namespace ContosoCrafts.WebSite.Controllers
     public class ProductsController : ControllerBase
     {
         /// <summary>
-        /// Controller class for Articles
+        /// Controller class for Products
         /// </summary>
         /// <param name="productService"></param>
         public ProductsController(JsonFileProductService productService)
@@ -29,7 +29,7 @@ namespace ContosoCrafts.WebSite.Controllers
         }
 
         /// <summary>
-        /// Add requested rating to article. 
+        /// Add requested rating to product. 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -41,7 +41,7 @@ namespace ContosoCrafts.WebSite.Controllers
             return Ok();
         }
         /// <summary>
-        /// Define a rating request class with article ID and rating. 
+        /// Define a rating request class with product ID and rating. 
         /// </summary>
         public class RatingRequest
         {
