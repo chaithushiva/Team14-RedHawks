@@ -10,19 +10,19 @@
         <table class="table table-bordered table-striped">
             <a asp-page="Create" asp-route-id="/Create">+ Create</a>
            <thead>
-                <tr>
-                    <th>School Name</th>
-                    <th>Action</th>
-                </tr>
+            <tr>
+                <th>School Name</th>
+                <th>Action</th>
+            </tr>
         </thead>
         <tbody>
                 @foreach (var product in Model.Products)
-                {
-                    <tr>
-                        <td>@product.SchoolName</td>
-                        <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
-                    </tr>
-                }
+            {
+                <tr>
+                    <td>@product.SchoolName</td>
+                    <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
+                </tr>
+            }
         </tbody>
         </table>
     </div>
