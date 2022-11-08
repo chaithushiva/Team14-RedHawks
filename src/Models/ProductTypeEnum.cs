@@ -1,7 +1,7 @@
 ﻿namespace ContosoCrafts.WebSite.Models
 {
     /// <summary>
-    /// Define an enum for type Article. 
+    /// Define an enum for type Product. 
     /// </summary>
     public enum ProductTypeEnum
     {
@@ -13,12 +13,12 @@
         NoteBooks = 6,
     }
     /// <summary>
-    /// Define Article Type enum extensions. 
+    /// Define Product Type enum extensions. 
     /// </summary>
     public static class ProductTypeEnumExtensions
     {
         /// <summary>
-        /// Display name of the Article type enum. 
+        /// Display name of the Product type enum. 
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
