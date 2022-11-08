@@ -9,13 +9,13 @@
     <div class="container">
         <table class="table table-bordered table-striped">
             <a asp-page="Create" asp-route-id="/Create">+ Create</a>
-            <thead>
+           <thead>
                 <tr>
-                    <th>Titke</th>
+                    <th>School Name</th>
                     <th>Action</th>
                 </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
                 @foreach (var product in Model.Products)
                 {
                     <tr>
@@ -23,7 +23,7 @@
                         <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
                     </tr>
                 }
-            </tbody>
+        </tbody>
         </table>
     </div>
 

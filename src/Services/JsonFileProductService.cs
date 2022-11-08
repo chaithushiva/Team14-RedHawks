@@ -124,11 +124,17 @@ namespace ContosoCrafts.WebSite.Services
             productData.Url = data.Url;
             productData.Image = data.Image;
 
+
             productData.CommentList = data.CommentList;
 
             SaveData(products);
 
             return productData;
+        }
+
+        public ProductModel GetProduct(string id)
+        {
+            return GetAllData().FirstOrDefault(m => m.Id.Equals(id));
         }
 
         /// <summary>
