@@ -2,123 +2,104 @@
   {
     "Id": "jenlooper-cactus",
     "Author": "@jenlooper",
+    "img": "http://theholmeseducationpost.com/wp-content/uploads/2015/09/ImageSeattle-PublicSchools2.jpg",
+    "Url": "https://www.seattleschools.org/",
     "SchoolName": "Seattle Public School",
     "SchoolAddress": "2445 3rd Ave. S, Seattle, WA 98134",
     "SchoolContactInfo": "206-252-0000",
     "SchoolEmail": "SeattlePublic@edu.in",
-    "Img": "http://theholmeseducationpost.com/wp-content/uploads/2015/09/ImageSeattle-PublicSchools2.jpg",
-    "Url": "https://www.seattleschools.org/",
     "Ratings": [
       5
     ],
     "ProductType": 55,
-    "CommentList": [],
-    "Laptops": "10",
-    "Projectors": "4",
-    "Desks": "10",
-    "SmartBoards": "5",
-    "NoteBooks": "120"
+    "CommentList": []
   },
   {
     "Id": "aldous-huxley-brave-new-world",
     "Author": "Aldous-Huxley",
+    "img": "https://tse4.mm.bing.net/th?id=OIP.6ROsxZS_76R30LzxrK1S5gHaHa\u0026pid=Api\u0026P=0",
+    "Url": "https://www.etonschool.org/learning/academics?msclkid=dd2a72dea530143e4a7411b495645b2d",
     "SchoolName": "Eton School",
     "SchoolAddress": "2701 Bellevue-Redmond Road,Bellevue,Washington 98008",
     "SchoolContactInfo": "425-881-4230",
     "SchoolEmail": "etonschool@edu.in",
-    "Img": "https://tse4.mm.bing.net/th?id=OIP.6ROsxZS_76R30LzxrK1S5gHaHa&pid=Api&P=0",
-    "Url": "https://www.etonschool.org/learning/academics?msclkid=dd2a72dea530143e4a7411b495645b2d",
     "Ratings": [
       4
-
     ],
     "ProductType": 1,
-    "CommentList": [],
-    "Laptops": "20",
-    "Projectors": "3",
-    "Desks": "25",
-    "SmartBoards": "3",
-    "NoteBooks": "200"
+    "CommentList": []
   },
   {
     "Id": "aldous-huxley-brave-new-world",
     "Author": "Aldous-Huxley",
+    "img": "https://ufeseattle.org/wp-content/uploads/2018/02/FISW-logo-Spot.jpg",
+    "Url": "https://www.fisw.org/",
     "SchoolName": "Eastside International School",
     "SchoolAddress": "4211 W LAKE SAMMAMISH PKWY SE, BELLEVUE, WA 98008",
     "SchoolContactInfo": "425-653-3970",
     "SchoolEmail": "fisw@edu.in",
-    "Img": "https://ufeseattle.org/wp-content/uploads/2018/02/FISW-logo-Spot.jpg",
-    "Url": "https://www.fisw.org/",
     "Ratings": [
       5
     ],
     "ProductType": 55,
-    "CommentList": [],
-    "Laptops": "32",
-    "Projectors": "4",
-    "Desks": "28",
-    "SmartBoards": "8",
-    "NoteBooks": "125"
+    "CommentList": []
   },
-  
   {
     "Id": "sailorhg-bubblesortpic",
     "Author": "sailorhg",
+    "img": "https://roosevelths.seattleschools.org/wp-content/uploads/sites/83/2021/07/RHS_logo.jpg",
+    "Url": "https://roosevelths.seattleschools.org/",
     "SchoolName": "Roosevelt High School",
     "SchoolAddress": "1410 Northeast 66th Street, Seattle, WA 98115",
     "SchoolContactInfo": "425-653-3970",
     "SchoolEmail": "rooseveltHS@edu.in",
-    "Img": "https://roosevelths.seattleschools.org/wp-content/uploads/sites/83/2021/07/RHS_logo.jpg",
-    "Url": "https://roosevelths.seattleschools.org/",
     "Ratings": [
       4
     ],
     "ProductType": 1,
-    "CommentList": [],
-    "Laptops": "34",
-    "Projectors": "8",
-    "Desks": "18",
-    "SmartBoards": "10",
-    "NoteBooks": "60"
+    "CommentList": []
   },
   {
     "Id": "sailorhg-corsage",
     "Author": "sailorhg",
+    "img": "https://westseattlehs.seattleschools.org/wp-content/uploads/sites/101/2021/08/westseattle_high_logo.jpg",
+    "Url": "https://westseattlehs.seattleschools.org/",
     "SchoolName": "West Seattle High School",
     "SchoolAddress": "3000 California Avenue Southwest, Seattle, WA 98116",
     "SchoolContactInfo": "206-252-8800",
     "SchoolEmail": "WSeattle@edu.in",
-    "Img": "https://westseattlehs.seattleschools.org/wp-content/uploads/sites/101/2021/08/westseattle_high_logo.jpg",
-    "Url": "https://westseattlehs.seattleschools.org/",
     "Ratings": [
       3
     ],
     "ProductType": 55,
-    "CommentList": [],
-    "Laptops": "20",
-    "Projectors": "3",
-    "Desks": "5",
-    "SmartBoards": "5",
-    "NoteBooks": "20"
+    "CommentList": []
   },
   {
     "Id": "sailorhg-kit",
     "Author": null,
+    "img": "https://www.australianschoolsdirectory.com.au/schools/4877-1256177872-logo.jpeg",
+    "Url": "https://www.clevelandhs.org/",
     "SchoolName": "Cleveland High School",
     "SchoolAddress": "5511 15th Avenue South, Seattle, WA 98108",
     "SchoolContactInfo": "206-252-7800",
     "SchoolEmail": "clevelandhs@edu.in",
-    "Img": "https://www.australianschoolsdirectory.com.au/schools/4877-1256177872-logo.jpeg",
-    "Url": "https://www.clevelandhs.org/",
     "Ratings": [
       5
     ],
     "ProductType": 1,
-    "CommentList": [],
-    "Laptops": "210",
-    "Projectors": "9",
-    "Desks": "34",
-    "SmartBoards": "8",
-    "NoteBooks": "80"
+    "CommentList": []
+  },
+  {
+    "Id": "52145155-96d8-47ab-8060-3e3676b20048",
+    "Author": null,
+    "img": "No image specified",
+    "Url": "School URL",
+    "SchoolName": "Default schoolname",
+    "SchoolAddress": "School Address",
+    "SchoolContactInfo": "School Contact Number",
+    "SchoolEmail": null,
+    "Ratings": null,
+    "ProductType": 0,
+    "CommentList": []
   }
 ]
