@@ -29,6 +29,15 @@ namespace ContosoCrafts.WebSite.Models
         [StringLength(maximumLength: 128, MinimumLength = 1, ErrorMessage = "The SchoolName should have a length of more than {2} and up to {1} characters")]
         public string SchoolName { get; set; }
 
+        // Web location for the article
+        public string SchoolAddress { get; set; }
+
+        // Web location for the article
+        public string SchoolContactInfo { get; set; }
+
+        // Web location for the article
+        public string SchoolEmail { get; set; }
+
         // ratings for the article (remnant from Contoso Crafts site)
         public int[] Ratings { get; set; }
 
