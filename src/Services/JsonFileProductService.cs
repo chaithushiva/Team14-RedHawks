@@ -132,11 +132,7 @@ namespace ContosoCrafts.WebSite.Services
             return productData;
         }
 
-        public ProductModel GetProduct(string id)
-        {
-            return GetAllData().FirstOrDefault(m => m.Id.Equals(id));
-        }
-
+       
         /// <summary>
         /// Save All articles data to storage.
         /// </summary>
