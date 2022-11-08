@@ -1,26 +1,30 @@
 ﻿@page
-@model ContosoCrafts.WebSite.Pages.Product.IndexModel
+@using ContosoCrafts.WebSite.Services
+@model IndexModel
 @{
-    ViewData["Title"] = "Index page";
+    ViewData["Title"] = "Index Page";
 }
+<div class="content">
 
-<div class="container">
-    <a asp-page="Create" class="btn btn-link">+ Create</a>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in Model.Products)
-            {
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <a asp-page="Create" asp-route-id="/Create">+ Create</a>
+            <thead>
                 <tr>
-                    <td>@product.SchoolName</td>
-                    <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
+                    <th>Titke</th>
+                    <th>Action</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td>@product.SchoolName</td>
+                        <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
 </div>
