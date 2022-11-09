@@ -12,7 +12,7 @@ namespace UnitTests.Services
     using NUnit.Framework;
 
     /// <summary>
-    /// This class holds the tests for the main JsonFileArticleService class.
+    /// This class holds the tests for the main JsonFileProductService class.
     /// </summary>
     public class JsonFileProductServiceTests
     {
@@ -21,7 +21,7 @@ namespace UnitTests.Services
 
 
         /// <summary>
-        /// Initialize tests for JsonFileArticleService class
+        /// Initialize tests for JsonFileProductService class
         /// </summary>
         [SetUp]
         public void TestInitialize()
