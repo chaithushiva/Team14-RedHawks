@@ -10,7 +10,7 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Define attributes of Product Model. 
         /// </summary>
-        // Properties: Unique Identifier, Author(s), Publish Date, URL, Image, Title, Tags, Product Text/Body.
+        // Properties: Unique Identifier, Author(s),, URL, Image, SchoolName, Tags, Product Text/Body.
 
         // Unique identifier for the product
         public string Id { get; set; }
@@ -25,17 +25,17 @@ namespace ContosoCrafts.WebSite.Models
         // Web location for the product
         public string Url { get; set; }
 
-        // Product title
+        // Product schoolname
         [StringLength(maximumLength: 128, MinimumLength = 1, ErrorMessage = "The SchoolName should have a length of more than {2} and up to {1} characters")]
         public string SchoolName { get; set; }
 
-        // Web location for the product
+        // Product SchoolAddress
         public string SchoolAddress { get; set; }
 
-        // Web location for the product
+        // Product School Contact information
         public string SchoolContactInfo { get; set; }
 
-        // Web location for the product
+        // Product School Email Id
         public string SchoolEmail { get; set; }
 
         // ratings for the product (remnant from Contoso Crafts site)
