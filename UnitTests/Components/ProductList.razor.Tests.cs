@@ -9,7 +9,7 @@ namespace UnitTests.Components
 
 
     /// <summary>
-    /// Article list test set.
+    /// Product list test set.
     /// </summary>
     public class ProductListTests : BunitTestContext
     {
@@ -24,7 +24,7 @@ namespace UnitTests.Components
 
         #endregion TestSetup
         /// <summary>
-        /// Test for returning list of articles. 
+        /// Test for returning list of products. 
         /// </summary>
         [Test]
         public void Product_Default_Should_Return_Content()
