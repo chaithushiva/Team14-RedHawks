@@ -33,7 +33,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// REST Get request
         /// Loads the Data
         /// </summary>
-        /// <param name="id">The article Id as a string.</param>
+        /// <param name="id">The product Id as a string.</param>
         public void OnGet(string id)
         {
             Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
