@@ -23,7 +23,7 @@ namespace UnitTests
     /// 
     /// The View Data and Teamp Data
     /// 
-    /// The Article Service
+    /// The Product Service
     /// </summary>
     public static class TestHelper
     {
@@ -57,7 +57,7 @@ namespace UnitTests
         // PageContext is the context associated with the currenet request for a Razor page.
         public static PageContext PageContext;
 
-        // ArticleService is an instance of the JsonFileArticleService class holding the details of the Json file "database"
+        // ProductService is an instance of the JsonFileProductService class holding the details of the Json file "database"
         public static JsonFileProductService ProductService;
 
         /// <summary>
