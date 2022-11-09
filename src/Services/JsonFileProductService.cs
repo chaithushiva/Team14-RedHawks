@@ -10,7 +10,7 @@ namespace ContosoCrafts.WebSite.Services
     using Microsoft.AspNetCore.Hosting;
 
     /// <summary>
-    /// The JsonFileArticleService class is responsible for interacting with the
+    /// The JsonFileProductService class is responsible for interacting with the
     /// datastore. The datastore for this project is the articles.json file.
     /// </summary>
     public class JsonFileProductService
@@ -35,9 +35,9 @@ namespace ContosoCrafts.WebSite.Services
         private string JsonFileName => Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json");
 
         /// <summary>
-        /// Gets all the data from the json file and creates an instance of the ArticleModel.
+        /// Gets all the data from the json file and creates an instance of the ProductModel.
         /// </summary>
-        /// <returns>An Enumerable ArticleModel.</returns>
+        /// <returns>An Enumerable ProductModel.</returns>
         public IEnumerable<ProductModel> GetAllData()
         {
             using var jsonFileReader = File.OpenText(JsonFileName);
@@ -51,16 +51,16 @@ namespace ContosoCrafts.WebSite.Services
         /// <summary>
         /// Add Rating
         /// 
-        /// Take in the article ID and the rating
+        /// Take in the product ID and the rating
         /// If the rating does not exist, add it
         /// Save the update
         /// </summary>
-        /// <param name="productId">The unique article Id number.</param>
-        /// <param name="rating">The article rating integer value.</param>
+        /// <param name="productId">The unique product Id number.</param>
+        /// <param name="rating">The product rating integer value.</param>
         /// <returns>Returns true if ratings are added, otherwise return false.</returns>
         public bool AddRating(string productId, int rating)
         {
-            // If the ArticleID is invalid, return
+            // If the ProductID is invalid, return
             if (string.IsNullOrEmpty(productId))
             {
                 return false;
@@ -68,7 +68,7 @@ namespace ContosoCrafts.WebSite.Services
 
             var products = GetAllData();
 
-            // Look up the article, if it does not exist, return
+            // Look up the product, if it does not exist, return
             var data = products.FirstOrDefault(x => x.Id.Equals(productId));
             if (data == null)
             {
@@ -106,7 +106,7 @@ namespace ContosoCrafts.WebSite.Services
         /// Update the fields
         /// Save to the data store
         /// </summary>
-        /// <param name="data">The ArticleModel.</param>
+        /// <param name="data">The ProductModel.</param>
         public ProductModel UpdateData(ProductModel data)
         {
             var products = GetAllData();
@@ -134,7 +134,7 @@ namespace ContosoCrafts.WebSite.Services
 
        
         /// <summary>
-        /// Save All articles data to storage.
+        /// Save All products data to storage.
         /// </summary>
         private void SaveData(IEnumerable<ProductModel> products)
         {
@@ -151,10 +151,10 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// Create a new article using default values.
+        /// Create a new product using default values.
         /// After create the user can update to set values.
         /// </summary>
-        /// <returns>The ArticleModel.</returns>
+        /// <returns>The ProductModel.</returns>
         public ProductModel CreateData()
         {
             var data = new ProductModel()
@@ -179,7 +179,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <summary>
         /// Remove the item from the system.
         /// </summary>
-        /// <returns>The ArticleModel.</returns>
+        /// <returns>The ProductModel.</returns>
         public ProductModel DeleteData(string id)
         {
             // Get the current set, and append the new record to it
