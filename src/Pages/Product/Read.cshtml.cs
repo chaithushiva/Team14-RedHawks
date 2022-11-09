@@ -27,7 +27,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <summary>
         /// REST Get request
         /// </summary>
-        /// <param name="id">The article id as a string.</param>
+        /// <param name="id">The product id as a string.</param>
         public IActionResult OnGet(string id)
         {
             this.Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
