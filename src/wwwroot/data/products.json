@@ -88,18 +88,5 @@
     ],
     "ProductType": 1,
     "CommentList": []
-  },
-  {
-    "Id": "52145155-96d8-47ab-8060-3e3676b20048",
-    "Author": null,
-    "img": "No image specified",
-    "Url": "School URL",
-    "SchoolName": "Default schoolname",
-    "SchoolAddress": "School Address",
-    "SchoolContactInfo": "School Contact Number",
-    "SchoolEmail": null,
-    "Ratings": null,
-    "ProductType": 0,
-    "CommentList": []
   }
 ]
