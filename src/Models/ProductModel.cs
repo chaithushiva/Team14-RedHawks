@@ -20,13 +20,15 @@ namespace ContosoCrafts.WebSite.Models
 
         // A link to the image file to display in product preview
         [JsonPropertyName("img")]
+        [RegularExpression("^(http | https)://", ErrorMessage = "Image location must contain http:// or https://")]
         public string Image { get; set; }
 
         // Web location for the product
+        [RegularExpression("^(http | https)://", ErrorMessage = "URL must contain http:// or https://")]
         public string Url { get; set; }
 
         // Product schoolname
-        [StringLength(maximumLength: 128, MinimumLength = 1, ErrorMessage = "The SchoolName should have a length of more than {2} and up to {1} characters")]
+        [RegularExpression(@"^[a-zA-Z_\s-]{1,40}$", ErrorMessage = "Only upper case letters, lower case letters, spaces, and dashes are permitted.")]
         public string SchoolName { get; set; }
 
         // Product SchoolAddress
@@ -45,6 +47,7 @@ namespace ContosoCrafts.WebSite.Models
         public ProductTypeEnum ProductType { get; set; } = ProductTypeEnum.Undefined;
 
         // Store the Comments entered by the users on this product.
+        [StringLength(maximumLength: 1024, MinimumLength = 1, ErrorMessage = "Comments must have a length of more than {2} and up to {1} characters")]
         public List<CommentModel> CommentList { get; set; } = new List<CommentModel>();
 
         // To string method to display product as a text stirng
