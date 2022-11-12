@@ -9,7 +9,7 @@ namespace UnitTests.Components
 
 
     /// <summary>
-    /// Product list test set.
+    /// Article list test set.
     /// </summary>
     public class ProductListTests : BunitTestContext
     {
@@ -24,10 +24,10 @@ namespace UnitTests.Components
 
         #endregion TestSetup
         /// <summary>
-        /// Test for returning list of products. 
+        /// Test for returning list of articles. 
         /// </summary>
         [Test]
-        public void Product_Default_Should_Return_Content()
+        public void ProductList_Default_Should_Return_Content()
         {
             // Arrange
             _ = Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
