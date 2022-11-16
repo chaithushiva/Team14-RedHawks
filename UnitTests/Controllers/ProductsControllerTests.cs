@@ -1,123 +1,149 @@
-﻿using ContosoCrafts.WebSite.Controllers;
-using ContosoCrafts.WebSite.Models;
-using Microsoft.AspNetCore.Mvc;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static ContosoCrafts.WebSite.Controllers.ProductsController;
-
-
-
-namespace UnitTests.Controllers
+﻿namespace UnitTests.Components
 {
+    using System.Linq;
+    using Bunit;
+    using ContosoCrafts.WebSite.Components;
+    using ContosoCrafts.WebSite.Services;
 
+    using Microsoft.Extensions.DependencyInjection;
+
+    using NUnit.Framework;
 
 
     /// <summary>
-    /// Class containing unit test cases to ProductController
+    /// Article list test set.
     /// </summary>
-    public class ProductsControllerTests
+    public class ProductListTests : BunitTestContext
     {
-
-
-
-        //Creating and instance
-        public static ProductsController testProductController;
-
-
-
-        /// <summary>
-        /// Test initialize
-        /// </summary>
         #region TestSetup
-
-
-
+        /// <summary>
+        /// Initialize the test set.
+        /// </summary>
         [SetUp]
-        public void Testinitialize()
+        public void TestInitialize()
         {
-            testProductController = new ProductsController(TestHelper.ProductService);
         }
 
-
-
-        #endregion
-
-
-
+        #endregion TestSetup
         /// <summary>
-        /// Testing if get is valid should return products
+        /// Test for returning list of articles. 
         /// </summary>
         [Test]
-        public void Get_Valid_Should_Return_List_Of_Products()
+        public void ProductList_Default_Should_Return_Content()
         {
-            //Arrange
-            var data = testProductController.Get().ToList();
+            // Arrange
+            _ = Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
 
+            // Act
+            var page = RenderComponent<ProductList>();
 
+            // Get the Cards retrned
+            var result = page.Markup;
 
-            //Act
-
-
-
-            //Assert
-            Assert.AreEqual(typeof(List<ProductModel>), data.GetType());
+            // Assert
+            Assert.AreEqual(true, result.Contains("Seattle Public School");
         }
 
-
-
         /// <summary>
-        /// Testing get valid tostring should return string
+        /// Unit test to validate Select Product click
         /// </summary>
         [Test]
-        public void Get_Valid_ToString_Should_Return_String()
+        public void SelectProduct_Valid_ID_jenlooper_Should_Return_Content()
         {
-            //Arrange
-            var data = testProductController.Get().FirstOrDefault().ToString();
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "MoreInfoButton_jenlooper-cactus";
+            var page = RenderComponent<ArticleList>();
 
+            // Find More Info button specific to id
+            var buttonList = page.FindAll("Button");
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
 
+            // Act
+            button.Click();
 
-            //Act
+            // Store markup for Assert statement
+            var pageMarkup = page.Markup;
 
-
-
-            //Assert
-            Assert.AreEqual(typeof(string), data.GetType());
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("2445 3rd Ave. S, Seattle, WA 98134"));
         }
 
-
-
         /// <summary>
-        /// Testing patch valid shouls return ok
+        /// Unit test for GetCurrentRatings method when no ratings exist
         /// </summary>
         [Test]
-        public void Patch_Valid_Should_Return_Ok()
+        public void GetCurrentRatings_Valid_Null_ProductRatings_Should_Return_Zeros()
         {
-            //Arrange
-            //A new variable of type RatingRequest
-            var data = new RatingRequest
-            {
-                ProductId = "",
-                Rating = 5
-            };
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "MoreInfoButton_kate-lightshow";
+            var page = RenderComponent<ArticleList>();
 
+            // Find More Info button specific to id
+            var buttonList = page.FindAll("Button");
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
 
+            // Act
+            button.Click();
 
-            //A variable to hold the request
-            var result = testProductController.Patch(data);
+            // Store markup for Assert statement
+            var pageMarkup = page.Markup;
 
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("Eastside International School"));
+        }
 
+        /// <summary>
+        /// Unit test for GetCurrentRating with multiple votes
+        /// </summary>
+        [Test]
+        public void GetCurrentRatings_Valid_More_Than_One_Rating_Should_Return_True()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "MoreInfoButton_jenlooper-cactus";
+            var page = RenderComponent<ProductList>();
 
-            //Act
-            var okResult = result as OkResult;
+            // Find More Info button specific to id
+            var buttonList = page.FindAll("Button");
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
 
+            // Act
+            button.Click();
 
+            // Store markup for Assert statement
+            var pageMarkup = page.Markup;
 
-            //Assert
-            Assert.AreEqual(200, okResult.StatusCode);
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("Votes"));
+
+        }
+
+        /// <summary>
+        /// Unit test for GetCurrentRating with a single vote
+        /// </summary>
+        [Test]
+        public void GetCurrentRatings_Valid_Single_Rating_Should_Return_True()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "MoreInfoButton_sailorhg-corsage";
+            var page = RenderComponent<ProductList>();
+
+            // Find More Info button specific to id
+            var buttonList = page.FindAll("Button");
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+
+            // Act
+            button.Click();
+
+            // Store markup for Assert statement
+            var pageMarkup = page.Markup;
+
+            // Assert
+            Assert.AreEqual(true, pageMarkup.Contains("1 Vote"));
+
         }
     }
 }
