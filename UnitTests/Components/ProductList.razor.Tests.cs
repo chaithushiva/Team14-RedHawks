@@ -3,15 +3,13 @@ namespace UnitTests.Components
     using System.Linq;
     using Bunit;
     using ContosoCrafts.WebSite.Components;
+    using ContosoCrafts.WebSite.Models;
     using ContosoCrafts.WebSite.Services;
-
     using Microsoft.Extensions.DependencyInjection;
-
     using NUnit.Framework;
 
-
     /// <summary>
-    /// Article list test set.
+    /// Product list test set.
     /// </summary>
     public class ProductListTests : BunitTestContext
     {
@@ -26,7 +24,7 @@ namespace UnitTests.Components
 
         #endregion TestSetup
         /// <summary>
-        /// Test for returning list of articles. 
+        /// Test for returning list of products. 
         /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
@@ -37,7 +35,7 @@ namespace UnitTests.Components
             // Act
             var page = RenderComponent<ProductList>();
 
-            // Get the Cards retrned
+            // Get the Cards returned
             var result = page.Markup;
 
             // Assert
@@ -69,12 +67,16 @@ namespace UnitTests.Components
             Assert.AreEqual(true, pageMarkup.Contains("2445 3rd Ave. S, Seattle, WA 98134"));
         }
 
+        /// <summary>
+        /// Unit test for GetCurrentRatings method when no ratings exist
+        /// </summary>
+       
         [Test]
-        public void GetCurrentRatings_Valid_Single_Rating_Should_Return_True()
+        public void GetCurrentRatings_Valid_More_Than_One_Rating_Should_Return_True()
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "MoreInfoButton_sailorhg-corsage";
+            var id = "MoreInfoButton_jenlooper-cactus";
             var page = RenderComponent<ProductList>();
 
             // Find More Info button specific to id
@@ -88,8 +90,10 @@ namespace UnitTests.Components
             var pageMarkup = page.Markup;
 
             // Assert
-            Assert.AreEqual(true, pageMarkup.Contains("1 Vote"));
+            Assert.AreEqual(false, pageMarkup.Contains("Votes"));
 
         }
+
+       
     }
 }
