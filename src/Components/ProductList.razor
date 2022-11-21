@@ -44,28 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    @if (voteCount == 0)
-                    {
-                        <span>Be the first to vote!</span>
-                    }
-                    else
-                    {
-                        <span>@voteCount @voteLabel</span>
-                    }
-                    @for (int i = 1; i < 6; i++)
-                    {
-                        var currentStar = i;
-                        if (i <= currentRating)
-                        {
-                            <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
-                        }
-                        else
-                        {
-                            <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
-                        }
-                    }
-                </div>
+               
             </div>
         </div>
     </div>
@@ -95,13 +74,12 @@
         {
             currentRating = 0;
             voteCount = 0;
+            return;
         }
-        else
-        {
-            voteCount = selectedProduct.Ratings.Count();
-            voteLabel = voteCount > 1 ? "Votes" : "Vote";
-            currentRating = selectedProduct.Ratings.Sum() / voteCount;
-        }
+        voteCount = selectedProduct.Ratings.Count();
+        voteLabel = voteCount > 1 ? "Votes" : "Vote";
+        currentRating = selectedProduct.Ratings.Sum() / voteCount;
+
 
         System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
