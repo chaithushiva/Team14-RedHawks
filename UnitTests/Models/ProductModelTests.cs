@@ -7,17 +7,20 @@ using NUnit.Framework;
 
 namespace UnitTests.Models
 {
+
     /// <summary>
-    /// Test class for ProductModel
+    /// Test class for ArticleModel
     /// </summary>
     public class ProductModelTests
     {
+
         /// <summary>
-        /// Method to test valid input of an product
+        /// Method to test valid input of an article
         /// </summary>
         [Test]
         public void ToString_Valid_Null_ID_Should_Return_True()
         {
+
             // Arrange
             var data = TestHelper.ProductService.GetAllData().First(x => x.Id == "jenlooper-cactus");
 
