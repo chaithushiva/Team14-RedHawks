@@ -14,14 +14,14 @@
     public class IndexModel : PageModel
     {
         // message logging interface
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<IndexModel> logger;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public IndexModel(ILogger<IndexModel> logger, JsonFileProductService productService)
         {
-            _logger = logger;
+            this.logger = logger;
             ProductService = productService;
         }
 
