@@ -1,8 +1,7 @@
-﻿namespace UnitTests.Pages.Article
+﻿namespace UnitTests.Pages.Product
 {
     using ContosoCrafts.WebSite.Pages.Product;
     using ContosoCrafts.WebSite.Services;
-
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -12,9 +11,7 @@
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
     using Microsoft.AspNetCore.Routing;
     using Microsoft.Extensions.Logging;
-
     using Moq;
-
     using NUnit.Framework;
 
     /// <summary>
@@ -103,12 +100,10 @@
         {
             // Arrange
 
-
             // Act
             _ = pageModel.OnGet();
 
             // Reset
-
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
