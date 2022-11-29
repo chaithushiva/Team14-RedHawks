@@ -28,7 +28,9 @@ namespace ContosoCrafts.WebSite.Models
         public string Url { get; set; }
 
         // Product schoolname
-        [RegularExpression(@"^[a-zA-Z_\s-]{1,40}$", ErrorMessage = "Only upper case letters, lower case letters, spaces, and dashes are permitted.")]
+        [RegularExpression(@"^(.*\S.*)$", ErrorMessage = "School name cannot be whitespace only.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "School Name field is required.")]
+        [StringLength(maximumLength: 40, MinimumLength = 1, ErrorMessage = "The School Name should have a length of at least {2} and up to {1} characters")]
         public string SchoolName { get; set; }
 
         // Product SchoolAddress
