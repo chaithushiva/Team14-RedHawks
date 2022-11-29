@@ -1,13 +1,9 @@
 namespace UnitTests.Pages
 {
     using System.Diagnostics;
-
     using ContosoCrafts.WebSite.Pages;
-
     using Microsoft.Extensions.Logging;
-
     using Moq;
-
     using NUnit.Framework;
 
     /// <summary>
@@ -46,6 +42,7 @@ namespace UnitTests.Pages
         [Test]
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
+
             // Arrange
 
             var activity = new Activity("activity");
@@ -68,6 +65,7 @@ namespace UnitTests.Pages
         [Test]
         public void OnGet_InValid_Activity_Null_Should_Return_TraceIdentifier()
         {
+
             // Arrange
 
             // Act
