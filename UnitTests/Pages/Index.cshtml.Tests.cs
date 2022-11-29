@@ -1,13 +1,9 @@
 namespace UnitTests.Pages
 {
     using System.Linq;
-
     using ContosoCrafts.WebSite.Pages;
-
     using Microsoft.Extensions.Logging;
-
     using Moq;
-
     using NUnit.Framework;
 
     /// <summary>
@@ -19,7 +15,6 @@ namespace UnitTests.Pages
 
         // Data field to hold Index page for this test
         public static IndexModel pageModel;
-
 
         /// <summary>
         /// Set up test prior to execution
@@ -33,7 +28,6 @@ namespace UnitTests.Pages
             {
             };
         }
-
         #endregion TestSetup
 
         #region OnGet
@@ -43,13 +37,13 @@ namespace UnitTests.Pages
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
+
             // Arrange
             _ = pageModel.Products;
             _ = pageModel.ProductService;
 
             // Act
             pageModel.OnGet();
-
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
