@@ -16,15 +16,17 @@ namespace ContosoCrafts.WebSite.Models
         public string Id { get; set; }
 
         // Author Name
+        [RegularExpression(@"^[a-zA-Z_\s-]{1,40}$", ErrorMessage = "Letters, spaces, and dashes only.")]
         public string Author { get; set; }
 
         // A link to the image file to display in product preview
         [JsonPropertyName("img")]
-        [RegularExpression("^(http | https)://", ErrorMessage = "Image location must contain http:// or https://")]
+        [Url(ErrorMessage = "Invalid URL")]
         public string Image { get; set; }
 
         // Web location for the product
-        [RegularExpression("^(http | https)://", ErrorMessage = "URL must contain http:// or https://")]
+        [Required(ErrorMessage = "URL field is required.")]
+        [Url(ErrorMessage = "Invalid URL")]
         public string Url { get; set; }
 
         // Product schoolname
@@ -34,6 +36,7 @@ namespace ContosoCrafts.WebSite.Models
         public string SchoolName { get; set; }
 
         // Product SchoolAddress
+        [Required(ErrorMessage = "Address field is required.")]
         public string SchoolAddress { get; set; }
 
         // Product School Contact information
