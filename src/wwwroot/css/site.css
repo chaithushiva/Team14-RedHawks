@@ -37,8 +37,10 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .card-columns .card:hover {
-    transform: scale(1.05);
+    /*transform: scale(1.05);*/
+    transform: scale(1.10);
     box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
+    border: dotted;
 }
 
 .card-footer {
@@ -48,7 +50,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 a.navbar-brand {
     white-space: normal;
-    font-family: 'Yellowtail', cursive;
+    font-family: 'Bangers', cursive;
     font-size: xx-large;
     text-align: center;
     word-break: break-all;
@@ -116,8 +118,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    /*Change background color of home page to powder blue.*/
-    background-color: #e6f3ff;
+    background-color: peachpuff;
 }
 
 p {
@@ -125,7 +126,13 @@ p {
 }
 
 h1 {
-    font-family: 'Nunito', sans-serif;
+    /*font-family: 'Nunito', sans-serif;*/
+    font-family: 'Bangers', Cursive;
+}
+
+h3 {
+    font-family: "Brush Script MT ",Lucida Handwriting,Cursive;
+    font-size: 30px;
 }
 
 ul {
@@ -153,4 +160,49 @@ ul {
     background: -o-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
     background: -moz-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
     background: linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
+}
+/*Carousel Settings*/
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.4)
+}
+
+.carousel-item {
+    height: 700px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    outline: black;
+    background-size: 100%, 100%;
+    background-image: none;
+    color: black;
+}
+
+    .carousel-control-next-icon::after {
+        content: '>';
+        font-size: 55px;
+        color: black;
+    }
+
+    .carousel-control-prev-icon::after {
+        content: '<';
+        font-size: 55px;
+        color: black;
+    }
+/* Read Page Configuration */
+/* Container holding the image and the text */
+.content {
+    position: relative;
+}
+
+/* Bottom right text */
+.image-header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
