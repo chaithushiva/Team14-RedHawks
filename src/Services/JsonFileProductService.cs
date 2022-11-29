@@ -1,20 +1,25 @@
 namespace ContosoCrafts.WebSite.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text.Json;
-
     using ContosoCrafts.WebSite.Models;
-
     using Microsoft.AspNetCore.Hosting;
+    using static System.Net.Mime.MediaTypeNames;
 
     /// <summary>
     /// The JsonFileProductService class is responsible for interacting with the
-    /// datastore. The datastore for this project is the articles.json file.
+    /// data store. The data store for this project is the products.json file.
     /// </summary>
     public class JsonFileProductService
     {
+        private string defaultSchoolName = "Default School Name";
+        private string defaultAddress = "School Address";
+        private string defaultUrl = "Product URL";
+        private string defaultImage = "No image specified";
+
         /// <summary>
         /// This is the default constructor.
         /// </summary>
@@ -35,9 +40,9 @@ namespace ContosoCrafts.WebSite.Services
         private string JsonFileName => Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json");
 
         /// <summary>
-        /// Gets all the data from the json file and creates an instance of the ProductModel.
+        /// Gets all the data from the json file and creates an instance of the ArticleModel.
         /// </summary>
-        /// <returns>An Enumerable ProductModel.</returns>
+        /// <returns>An Enumerable ArticleModel.</returns>
         public IEnumerable<ProductModel> GetAllData()
         {
             using var jsonFileReader = File.OpenText(JsonFileName);
@@ -50,17 +55,16 @@ namespace ContosoCrafts.WebSite.Services
 
         /// <summary>
         /// Add Rating
-        /// 
-        /// Take in the product ID and the rating
+        /// Take in the article ID and the rating
         /// If the rating does not exist, add it
         /// Save the update
         /// </summary>
-        /// <param name="productId">The unique product Id number.</param>
-        /// <param name="rating">The product rating integer value.</param>
+        /// <param name="productId">The unique article Id number.</param>
+        /// <param name="rating">The article rating integer value.</param>
         /// <returns>Returns true if ratings are added, otherwise return false.</returns>
         public bool AddRating(string productId, int rating)
         {
-            // If the ProductID is invalid, return
+            // If the ArticleID is invalid, return
             if (string.IsNullOrEmpty(productId))
             {
                 return false;
@@ -68,7 +72,7 @@ namespace ContosoCrafts.WebSite.Services
 
             var products = GetAllData();
 
-            // Look up the product, if it does not exist, return
+            // Look up the article, if it does not exist, return.
             var data = products.FirstOrDefault(x => x.Id.Equals(productId));
             if (data == null)
             {
@@ -87,7 +91,8 @@ namespace ContosoCrafts.WebSite.Services
                 return false;
             }
 
-            // Check to see if the rating exist, if there are none, then create the array
+            // Check to see if the rating exist, if there are none, 
+            // then create the array.
             data.Ratings ??= new int[] { };
 
             // Add the Rating to the Array
@@ -106,7 +111,7 @@ namespace ContosoCrafts.WebSite.Services
         /// Update the fields
         /// Save to the data store
         /// </summary>
-        /// <param name="data">The ProductModel.</param>
+        /// <param name="data">The ArticleModel.</param>
         public ProductModel UpdateData(ProductModel data)
         {
             var products = GetAllData();
@@ -116,15 +121,11 @@ namespace ContosoCrafts.WebSite.Services
                 return null;
             }
 
-            // Update the data to the new passed in values
+            // Update the data to the new passed in values.
             productData.SchoolName = data.SchoolName;
             productData.SchoolAddress = data.SchoolAddress;
-            productData.SchoolContactInfo = data.SchoolContactInfo;
-            productData.SchoolEmail = data.SchoolEmail;
             productData.Url = data.Url;
             productData.Image = data.Image;
-
-
             productData.CommentList = data.CommentList;
 
             SaveData(products);
@@ -132,13 +133,11 @@ namespace ContosoCrafts.WebSite.Services
             return productData;
         }
 
-       
         /// <summary>
-        /// Save All products data to storage.
+        /// Save All articles data to storage.
         /// </summary>
         private void SaveData(IEnumerable<ProductModel> products)
         {
-
             using var outputStream = File.Create(JsonFileName);
             JsonSerializer.Serialize<IEnumerable<ProductModel>>(
                 new Utf8JsonWriter(outputStream, new JsonWriterOptions
@@ -151,35 +150,34 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         /// <summary>
-        /// Create a new product using default values.
+        /// Create a new article using default values.
         /// After create the user can update to set values.
         /// </summary>
-        /// <returns>The ProductModel.</returns>
-        public ProductModel CreateData()
+        /// <returns>The ArticleModel.</returns>
+        public ProductModel CreateProduct()
         {
-            var data = new ProductModel()
+            ProductModel product = new ProductModel()
             {
-                Id = System.Guid.NewGuid().ToString(),
-                SchoolName = "Default schoolname",
-                SchoolAddress= "School Address",
-                SchoolContactInfo= "School Contact Number",
-                Url = "School URL",
-                Image = "No image specified",
+                Id = Guid.NewGuid().ToString(),
+                SchoolName = defaultSchoolName,
+                SchoolAddress = defaultAddress,
+                Url = defaultUrl,
+                Image = defaultImage,
             };
 
             // Get the current set, and append the new record to it because IEnumerable does not have Add.
             var dataSet = GetAllData();
-            dataSet = dataSet.Append(data);
+            dataSet = dataSet.Append(product);
 
             SaveData(dataSet);
 
-            return data;
+            return product;
         }
 
         /// <summary>
         /// Remove the item from the system.
         /// </summary>
-        /// <returns>The ProductModel.</returns>
+        /// <returns>The ArticleModel.</returns>
         public ProductModel DeleteData(string id)
         {
             // Get the current set, and append the new record to it
@@ -192,6 +190,5 @@ namespace ContosoCrafts.WebSite.Services
 
             return data;
         }
-
     }
 }
