@@ -29,7 +29,7 @@ namespace ContosoCrafts.WebSite.Models
 
         // Product schoolname
         [RegularExpression(@"^(.*\S.*)$", ErrorMessage = "School name cannot be whitespace only.")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "School Name field is required.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Sc field is required.")]
         [StringLength(maximumLength: 40, MinimumLength = 1, ErrorMessage = "The School Name should have a length of at least {2} and up to {1} characters")]
         public string SchoolName { get; set; }
 
