@@ -2,8 +2,8 @@
 {
     using ContosoCrafts.WebSite.Models;
     using ContosoCrafts.WebSite.Pages.Product;
+    using ContosoCrafts.WebSite.Pages.Product;
     using Microsoft.AspNetCore.Mvc;
-
     using NUnit.Framework;
 
     /// <summary>
@@ -60,8 +60,8 @@
             pageModel.Product = new ProductModel
             {
                 Id = "selinazawacki-moon",
-                SchoolName = "schoolname",
-                SchoolAddress = "schooladdress",
+                SchoolName = "school name",
+                SchoolAddress = "Address",
                 Url = "url",
                 Image = "image"
             };
