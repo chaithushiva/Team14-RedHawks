@@ -1,23 +1,43 @@
 ﻿@page
 @using ContosoCrafts.WebSite.Components
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
-
-
-<style>
-    h3 {
-        font-family: "Brush Script MT ",Lucida Handwriting,Cursive;
-        font-size: 30px;
-    }
-
-    body {
-        background-color: peachpuff;
-    }
-    }
-</style>
-
-@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
-
 <script src="_framework/blazor.server.js"></script>
+
+<div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        @{
+            int i = 0;
+            foreach (var product in ProductService.GetAllData())
+            {
+                string classText = (i == 0) ? "active" : "";
+                <div class="carousel-item + @classText">
+                    <div class="d-flex justify-content-center w-100 h-100">
+                        <a href="/Product/Read/@product.Id">
+                            <img src="@product.Image" margin=auto>
+                        </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>@product.SchoolName</h5>
+                            <p>@product.SchoolAddress</p>
+                        </div>
+                    </div>
+                </div>
+                i++;
+            }
+        }
+    </div>
+</div>
+
+<a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+</a>
+
+<a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>
