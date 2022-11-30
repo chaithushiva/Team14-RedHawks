@@ -213,8 +213,8 @@ namespace UnitTests.Services
 
             // Assert
             Assert.AreEqual("Default School Name", result.SchoolName);
-            Assert.AreEqual("SchoolAddress", result.SchoolAddress);
-            Assert.AreEqual("School URL", result.Url);
+            Assert.AreEqual("School Address", result.SchoolAddress);
+            Assert.AreEqual("Product URL", result.Url);
             Assert.AreEqual("No image specified", result.Image);
             Assert.AreEqual(result.Id, last.Id);
         }

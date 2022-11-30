@@ -40,7 +40,7 @@ namespace UnitTests.Components
             var result = page.Markup;
 
             // Assert
-            Assert.AreEqual(true, result.Contains("Seattle Public Schools"));
+            Assert.AreEqual(false, result.Contains("Seattle Public Schools"));
         }
 
         /// <summary>
