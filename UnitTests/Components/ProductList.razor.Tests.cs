@@ -8,7 +8,7 @@ namespace UnitTests.Components
     using NUnit.Framework;
 
     /// <summary>
-    /// Article list test set.
+    /// Product list test set.
     /// </summary>
     public class ProductListTests : BunitTestContext
     {
@@ -25,7 +25,7 @@ namespace UnitTests.Components
         #endregion TestSetup
 
         /// <summary>
-        /// Test for returning list of articles. 
+        /// Test for returning list of products. 
         /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
@@ -44,7 +44,7 @@ namespace UnitTests.Components
         }
 
         /// <summary>
-        /// Unit test to validate Select Article click
+        /// Unit test to validate Select Product click
         /// </summary>
         [Test]
         public void SelectProduct_Valid_ID_jenlooper_Should_Return_Content()
