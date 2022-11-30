@@ -4,21 +4,17 @@ namespace UnitTests.Services
     using System.IO;
     using System.Linq;
     using System.Text.Json;
-
     using Bunit.Extensions;
-
     using ContosoCrafts.WebSite.Models;
-
     using NUnit.Framework;
 
     /// <summary>
     /// This class holds the tests for the main JsonFileProductService class.
     /// </summary>
-    public class JsonFileProductServiceTests
+    public class JsonFileArticleServiceTests
     {
 
         #region TestSetup
-
 
         /// <summary>
         /// Initialize tests for JsonFileProductService class
@@ -27,9 +23,7 @@ namespace UnitTests.Services
         public void TestInitialize()
         {
         }
-
         #endregion TestSetup
-
 
         #region GetAllData
 
@@ -39,6 +33,7 @@ namespace UnitTests.Services
         [Test]
         public void GetAllData_Invalid_Does_Not_Return_Null_Or_Empty_Should_Return_False()
         {
+
             // Arrange
 
             // Act
@@ -54,6 +49,7 @@ namespace UnitTests.Services
         [Test]
         public void GetAllData_Valid_Returns_Contents_Of_Json_File_Should_Return_True()
         {
+
             // Arrange
 
             // read JSON file directly and convert to a string for comparison
@@ -79,8 +75,9 @@ namespace UnitTests.Services
         /// Testing invalid null input for AddRating method
         /// </summary>
         [Test]
-        public void AddRating_InValid_Product_Null_Should_Return_False()
+        public void AddRating_InValid_Article_Null_Should_Return_False()
         {
+
             // Arrange
 
             // Act
@@ -96,6 +93,7 @@ namespace UnitTests.Services
         [Test]
         public void AddRating_InValid_Product_Empty_Should_Return_False()
         {
+
             // Arrange
 
             // Act
@@ -111,6 +109,7 @@ namespace UnitTests.Services
         [Test]
         public void AddRating_InValid_Data_Null_Should_Return_False()
         {
+
             // Arrange
 
             // Act
@@ -126,6 +125,7 @@ namespace UnitTests.Services
         [Test]
         public void AddRating_InValid_Negative_Rating_Should_Return_False()
         {
+
             // Arrange
             var productID = TestHelper.ProductService.GetAllData().First().Id;
 
@@ -142,6 +142,7 @@ namespace UnitTests.Services
         [Test]
         public void AddRating_InValid_Too_High_Rating_Should_Return_False()
         {
+
             // Arrange
             var productID = TestHelper.ProductService.GetAllData().First().Id;
 
@@ -158,9 +159,10 @@ namespace UnitTests.Services
         [Test]
         public void AddRating_Valid_Create_Data_Ratings_Array_Should_Return_True()
         {
+
             // Arrange
-            // create a ProductModel with no ratings
-            var data = TestHelper.ProductService.CreateData();
+            // create a ProductModel with no ratings.
+            var data = TestHelper.ProductService.CreateProduct();
 
             // Act
             var result = TestHelper.ProductService.AddRating(data.Id, 4);
@@ -174,8 +176,9 @@ namespace UnitTests.Services
         /// Testing typical, valid usage of AddRating method
         /// </summary>
         [Test]
-        public void AddRating_Valid_product_Rating_5_Should_Return_True()
+        public void AddRating_Valid_Article_Rating_5_Should_Return_True()
         {
+
             // Arrange
 
             // Get the First data item
@@ -196,20 +199,21 @@ namespace UnitTests.Services
         #region CreateData
 
         /// <summary>
-        /// Testing typical, valid usage of CreateData method
+        /// Testing typical, valid usage of CreateProduct method
         /// </summary>
         [Test]
         public void CreateData_Valid_Last_Value_Matches_Created_Values_Should_Return_True()
         {
+
             // Arrange
 
             // Act
-            var result = TestHelper.ProductService.CreateData();
+            var result = TestHelper.ProductService.CreateProduct();
             var last = TestHelper.ProductService.GetAllData().Last();
 
             // Assert
             Assert.AreEqual("Default schoolname", result.SchoolName);
-            Assert.AreEqual("School Address", result.SchoolAddress);
+            Assert.AreEqual("SchoolAddress", result.SchoolAddress);
             Assert.AreEqual("School URL", result.Url);
             Assert.AreEqual("No image specified", result.Image);
             Assert.AreEqual(result.Id, last.Id);
@@ -224,6 +228,7 @@ namespace UnitTests.Services
         [Test]
         public void UpdateData_Valid_Updated_Value_Matches_Should_Return_True()
         {
+
             // Arrange
             var data = TestHelper.ProductService.GetAllData().FirstOrDefault();
             var data2 = data;
