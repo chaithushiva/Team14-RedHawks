@@ -5,7 +5,7 @@
     using NUnit.Framework;
 
     /// <summary>
-    /// Unit tests for the ArticleController class.
+    /// Unit tests for the ProductController class.
     /// </summary>
     internal class ProductControllerTests
     {
