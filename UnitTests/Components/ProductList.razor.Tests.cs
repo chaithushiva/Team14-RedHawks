@@ -3,17 +3,17 @@ namespace UnitTests.Components
     using System.Linq;
     using Bunit;
     using ContosoCrafts.WebSite.Components;
-    using ContosoCrafts.WebSite.Models;
     using ContosoCrafts.WebSite.Services;
     using Microsoft.Extensions.DependencyInjection;
     using NUnit.Framework;
 
     /// <summary>
-    /// Product list test set.
+    /// Article list test set.
     /// </summary>
     public class ProductListTests : BunitTestContext
     {
         #region TestSetup
+
         /// <summary>
         /// Initialize the test set.
         /// </summary>
@@ -23,8 +23,9 @@ namespace UnitTests.Components
         }
 
         #endregion TestSetup
+
         /// <summary>
-        /// Test for returning list of products. 
+        /// Test for returning list of articles. 
         /// </summary>
         [Test]
         public void ProductList_Default_Should_Return_Content()
@@ -39,11 +40,11 @@ namespace UnitTests.Components
             var result = page.Markup;
 
             // Assert
-            Assert.AreEqual(true, result.Contains("Seattle Public School"));
+            Assert.AreEqual(true, result.Contains("Seattle Public Schools"));
         }
 
         /// <summary>
-        /// Unit test to validate Select Product click
+        /// Unit test to validate Select Article click
         /// </summary>
         [Test]
         public void SelectProduct_Valid_ID_jenlooper_Should_Return_Content()
@@ -64,36 +65,7 @@ namespace UnitTests.Components
             var pageMarkup = page.Markup;
 
             // Assert
-            Assert.AreEqual(true, pageMarkup.Contains("2445 3rd Ave. S, Seattle, WA 98134"));
+            Assert.AreEqual(true, pageMarkup.Contains("2445 3rd Ave. S"));
         }
-
-        /// <summary>
-        /// Unit test for GetCurrentRatings method when no ratings exist
-        /// </summary>
-       
-        [Test]
-        public void GetCurrentRatings_Valid_More_Than_One_Rating_Should_Return_True()
-        {
-            // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "MoreInfoButton_jenlooper-cactus";
-            var page = RenderComponent<ProductList>();
-
-            // Find More Info button specific to id
-            var buttonList = page.FindAll("Button");
-            var button = buttonList.First(m => m.OuterHtml.Contains(id));
-
-            // Act
-            button.Click();
-
-            // Store markup for Assert statement
-            var pageMarkup = page.Markup;
-
-            // Assert
-            Assert.AreEqual(false, pageMarkup.Contains("Votes"));
-
-        }
-
-       
     }
 }
