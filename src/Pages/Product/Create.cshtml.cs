@@ -32,7 +32,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <returns>Redirect the web page to the Update page populated with the data so the user can fill in the fields.</returns>
         public IActionResult OnGet()
         {
-            Product = ProductService.CreateData();
+            Product = ProductService.CreateProduct();
 
             return RedirectToPage("./Update", new { Product.Id });
         }
