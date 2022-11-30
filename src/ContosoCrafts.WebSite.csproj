@@ -15,9 +15,13 @@
 		</Content>
 	</ItemGroup>
 
+	<ItemGroup>
+		<Folder Include="wwwroot\img\" />
+	</ItemGroup>
+
 	<ProjectExtensions>
 		<VisualStudio>
-			<UserProperties wwwroot_4data_4products_1json__JsonSchema="https://docs.strmprivacy.io/jsonschema/BatchJob.json" />
+			<UserProperties wwwroot_4data_4articles_1json__JsonSchema="https://docs.strmprivacy.io/jsonschema/BatchJob.json" />
 		</VisualStudio>
 	</ProjectExtensions>
 
