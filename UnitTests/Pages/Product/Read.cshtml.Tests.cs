@@ -96,7 +96,7 @@
 
         #region OnGet
         /// <summary>
-        /// Tests execution path when article name does not exist
+        /// Tests execution path when product name does not exist
         /// </summary>
         [Test]
         public void OnGet_Invalid_Should_Redirect_To_Index()
