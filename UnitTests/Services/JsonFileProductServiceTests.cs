@@ -212,7 +212,7 @@ namespace UnitTests.Services
             var last = TestHelper.ProductService.GetAllData().Last();
 
             // Assert
-            Assert.AreEqual("Default schoolname", result.SchoolName);
+            Assert.AreEqual("Default School Name", result.SchoolName);
             Assert.AreEqual("SchoolAddress", result.SchoolAddress);
             Assert.AreEqual("School URL", result.Url);
             Assert.AreEqual("No image specified", result.Image);
